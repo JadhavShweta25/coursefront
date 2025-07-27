@@ -16,6 +16,9 @@ import { AdminloginComponent } from './adminlogin/adminlogin.component';
 import { ViewnotesComponent } from './viewnotes/viewnotes.component';
 
 export const routes: Routes = [
+    {path:'home',component:HomeComponent},
+    {path:'',redirectTo:'home',pathMatch:'full'},
+
     {path:'',component:HomeComponent},
     {path:'courses',component:CoursesComponent},
     {path:'feedback',component:FeedbackComponent},
@@ -30,7 +33,8 @@ export const routes: Routes = [
     {path:'viewfeedback',component:ViewfeedbackComponent},
     {path:'mngnotes',component:MngnotesComponent},
     {path:'adm',component:AdminloginComponent},
-    {path:'viewnotes/:cid',component:ViewnotesComponent} 
+    {path:'viewnotes/:cid',component:ViewnotesComponent},
+    {path:'**',redirectTo:'home',pathMatch:'full'}, 
     
     
 ];
