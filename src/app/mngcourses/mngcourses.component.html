@@ -1,0 +1,35 @@
+<div class="container">
+    <h3>Manage Course Here</h3>
+    <div style="width: 400px">
+        <form (ngSubmit)="submitdata()" enctype="multipart/form-data">
+            <div class="form-group">
+                <label for="name">Course Name</label>
+                <input type="text" class="form-control" id="name" required [(ngModel)]="b.name" name="name">
+            </div>
+
+            <div class="form-group">
+                <label for="name">Syllabus</label>
+                <input type="text" class="form-control" id="syllabus" required [(ngModel)]="b.syllabus" name="syllabus">
+            </div>
+
+            <div class="form-group">
+                <label for="name">Fees</label>
+                <input type="text" class="form-control" id="fees" required [(ngModel)]="b.fees" name="fees">
+            </div>
+
+             <div class="form-group">
+                <label for="name">Course Image</label>
+                 <input type="file" class="form-control" id="courseImages" required multiple value="select"
+                 (change)="onFileSelected($event)">
+                 <div class="row">
+                 <div *ngFor="let file of b.courseImages;let i=index" class="col-sm-2">
+                    <span class="close" (click)="removeImage(i)">x</span>
+                    <img [src]="file.url" alt="" width="100px" height="100px">
+                       </div>
+                     </div>
+                 </div>
+                  
+                 <button type="submit" class="btn btn-success">Submit</button>
+        </form>
+    </div>
+

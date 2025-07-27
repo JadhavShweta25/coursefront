@@ -1,0 +1,19 @@
+<div class="container">
+    <h1 class="text-center display-5">Feedbacks</h1>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Emailid</th>
+                <th>Message</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let f of farr">
+                <td>{{f.emailid}}</td>
+                <td>{{f.message}}</td>
+                
+            </tr>
+        </tbody>
+    </table>
+</div>
+

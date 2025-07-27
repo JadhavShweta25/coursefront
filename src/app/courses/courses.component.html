@@ -1,0 +1,16 @@
+<div class="container">
+    <h1 class="text-center display-5">Our Courses</h1>
+        <div class="card-group">
+        <div *ngFor="let c of carr" class="card" style="width: 18rem;">
+  <img src="http://localhost:9000/coursemgt/courses/{{c.courseImages[0].name}}" class="card-img-top" 
+  alt="..." width="300" height="200">
+  <div class="card-body">
+    <h5 class="card-title">{{c.name}}</h5>
+    <p class="card-text">Syllabus: {{c.syllabus}}</p>
+    <h5>Fees: {{c.fees}} </h5>
+    <a *ngIf="isLoggedIn" (click)="addcart(c)" class="btn btn-primary">Add to Cart</a>
+  </div>
+</div>
+
+</div>
+</div>

@@ -1,0 +1,11 @@
+<div class="container">
+    <h1 class="text-center">Notes</h1>
+    <div *ngFor="let n of no" class="card w-75 mb-3">
+       <div class="card-body">
+           <h5 class="card-title">{{n.chaptername}}</h5>
+           <p class="card-text">{{n.chaptercontent}}
+           </p>
+           
+        </div>
+    </div>
+</div>

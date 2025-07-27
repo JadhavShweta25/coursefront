@@ -1,0 +1,51 @@
+<section class="vh-100">
+  <div class="container py-5 h-100">
+    <div class="row d-flex align-items-center justify-content-center h-100">
+      <div class="col-md-8 col-lg-7 col-xl-6">
+        <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.svg"
+          class="img-fluid" alt="Phone image">
+      </div>
+      <div class="col-md-7 col-lg-5 col-xl-5 offset-xl-1">
+        <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Log In</p>
+        <form #regForm="ngForm" (ngSubmit)="submitdata()">
+          <!-- Email input -->
+          <div data-mdb-input-init class="form-outline mb-4">
+            <input [(ngModel)]="reg.emailid" name="email" #email="ngModel" type="email" id="email" class="form-control form-control-lg" required />
+            <label class="form-label" for="email">Email address</label>
+            <div *ngIf="!email.valid" style="color: red;">
+                      <div *ngIf="email.errors?.['required']">
+                          Email is required
+                        </div>
+                        <div *ngIf="email.errors?.['email']">
+                          Email id must be valid
+                        </div> 
+                      </div>
+          </div>
+
+          <!-- Password input -->
+          <div data-mdb-input-init class="form-outline mb-4">
+            <input [(ngModel)]="reg.password" name="password" #password="ngModel" type="password" id="password" class="form-control form-control-lg" 
+            required pattern="^[A-Za-z0-9!@#$%]{8,12}$"/>
+            <label class="form-label" for="password">Password</label>
+            <div *ngIf="!password.valid" style="color: red;">
+                      <div *ngIf="password.errors?.['required']">
+                          Password is required
+                        </div>
+                        <div *ngIf="password.errors?.['pattern']">
+                          Password can contain one capital letter and one small letter 1 digit
+                          1 special symbol atleast 8 chars and max 12 chars
+                        </div> 
+                      </div>
+          </div>
+          
+
+          <!-- Submit button -->
+           <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
+          <button name="submit" type="submit" data-mdb-button-init data-mdb-ripple-init 
+          class="btn btn-primary btn-lg btn-block" style="align-items: center;" [disabled]="!regForm.valid">Sign in</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
