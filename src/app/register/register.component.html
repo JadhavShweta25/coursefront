@@ -11,21 +11,32 @@
 
                 <form #regForm="ngForm" class="mx-1 mx-md-4" (ngSubmit)="submitdata()">
 
-                  <div class="d-flex flex-row align-items-center mb-4">
-                    <i class="fas fa-user fa-lg me-3 fa-fw"></i>
-                    <div data-mdb-input-init class="form-outline flex-fill mb-0">
-                      <input [(ngModel)]="reg.name" name="name" #name="ngModel" type="text" id="name" class="form-control" required pattern="^[a-zA-Z]+$" />
-                      <label class="form-label" for="name">Name</label>
-                      <div *ngIf="!name.valid" style="color: red;">
-                        <div *ngIf="name.errors?.['required']">
-                          Name is required
-                        </div>
-                        <div *ngIf="name.errors?.['pattern']">
-                          Name can contain only alphabets
-                        </div>
-                      </div>
-                    </div>
-                  </div>
+<div class="d-flex flex-row align-items-center mb-4">
+  <i class="fas fa-user fa-lg me-3 fa-fw"></i>
+  <div data-mdb-input-init class="form-outline flex-fill mb-0">
+    <input 
+      [(ngModel)]="reg.name" 
+      name="name" 
+      #name="ngModel" 
+      type="text" 
+      id="name" 
+      class="form-control" 
+      required 
+      pattern="^[a-zA-Z]+$" />
+      
+    <label class="form-label" for="name">Name</label>
+    
+    <!-- Show error only after user touched the field -->
+    <div *ngIf="name.invalid && (name.dirty || name.touched)" style="color: red;">
+      <div *ngIf="name.errors?.['required']">
+        Name is required
+      </div>
+      <div *ngIf="name.errors?.['pattern']">
+        Name can contain only alphabets
+      </div>
+    </div>
+  </div>
+</div>
 
                   <div class="d-flex flex-row align-items-center mb-4">
                     <i class="fas fa-user fa-lg me-3 fa-fw"></i>
